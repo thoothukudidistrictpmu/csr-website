@@ -1,0 +1,6 @@
+{
+  "name": "CSR Website Launch Program",
+  "description": "An interactive launch and administration portal for the Corporate Social Responsibility (CSR) initiative of Thoothukudi District, Tamil Nadu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
