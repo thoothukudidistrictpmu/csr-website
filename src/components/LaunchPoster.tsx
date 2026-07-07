@@ -73,60 +73,60 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
 
   return (
     <div 
-      className="min-h-screen bg-cover bg-center bg-no-repeat relative overflow-hidden flex flex-col justify-between p-4 md:p-8" 
+      className="h-screen max-h-screen bg-cover bg-center bg-no-repeat relative overflow-hidden flex flex-col justify-between p-2 md:p-6" 
       style={{ 
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('${bgImage}')` 
       }}
       id="launch-poster-portal"
     >
       
-      {/* Main Content Container - Entirely transparent, letting the beautiful original Thoothukudi background (Tiruchendur Temple Coast) display natively with no layout boxes */}
+      {/* Main Content Container - Entirely transparent, letting the beautiful original Thoothukudi background display natively with no layout boxes */}
       <div 
-        className="max-w-4xl w-full mx-auto my-auto relative z-30 flex flex-col items-center py-6 px-4 md:py-10"
+        className="max-w-4xl w-full mx-auto my-auto relative z-30 flex flex-col items-center py-2 px-4"
       >
         
         {/* TOP: Tamil Nadu Government Emblem (No background box) */}
-        <div className="mb-6 flex items-center justify-center" id="main-header-emblem">
-          <TamilNaduEmblem size={120} />
+        <div className="mb-3 md:mb-4 flex items-center justify-center" id="main-header-emblem">
+          <TamilNaduEmblem size={85} />
         </div>
-
+ 
         {/* Center Title Layout with clear high contrast text-shadows */}
-        <div className="text-center space-y-3 max-w-2xl w-full">
+        <div className="text-center space-y-1.5 max-w-2xl w-full">
           <div>
-            <p className="text-amber-300 font-serif italic text-xl md:text-3xl font-extrabold tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <p className="text-amber-300 font-serif italic text-lg md:text-2xl font-extrabold tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Welcome to
             </p>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight leading-none uppercase font-sans drop-shadow-[0_4px_8px_rgba(0,0,0,0.65)]">
+          <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-none uppercase font-sans drop-shadow-[0_4px_8px_rgba(0,0,0,0.65)]">
             CSR Website
           </h1>
 
           {/* Subtitle "LAUNCH PROGRAM" enclosed with clean gold trim lines and text-shadow */}
-          <div className="flex items-center justify-center gap-4 py-2">
-            <div className="h-[2px] bg-amber-400 w-16 md:w-28 shadow-sm" />
-            <h2 className="text-base md:text-xl font-black tracking-[0.25em] text-yellow-300 uppercase font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
+          <div className="flex items-center justify-center gap-4 py-1">
+            <div className="h-[2px] bg-amber-400 w-12 md:w-20 shadow-sm" />
+            <h2 className="text-xs md:text-base font-black tracking-[0.25em] text-yellow-300 uppercase font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
               Launch Program
             </h2>
-            <div className="h-[2px] bg-amber-400 w-16 md:w-28 shadow-sm" />
+            <div className="h-[2px] bg-amber-400 w-12 md:w-20 shadow-sm" />
           </div>
         </div>
 
         {/* CENTER ACTION: LAUNCH WEBSITE BUTTON */}
-        <div className="my-10 relative">
+        <div className="my-4 md:my-6 relative">
           {isLaunching ? (
-            <div className="flex flex-col items-center gap-4 bg-white/95 backdrop-blur-md p-8 rounded-3xl border border-white/50 shadow-2xl min-w-[320px] animate-fade-in">
+            <div className="flex flex-col items-center gap-3 bg-white/95 backdrop-blur-md p-6 rounded-2xl border border-white/50 shadow-2xl min-w-[300px] animate-fade-in">
               {countdown === 0 ? (
-                <div className="flex flex-col items-center gap-2">
-                  <span className="text-3xl font-black text-emerald-900 animate-bounce">🚀 LAUNCHING...</span>
-                  <p className="text-xs text-slate-700 font-bold">Connecting to Thoothukudi Public Portal</p>
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-2xl font-black text-emerald-900 animate-bounce">🚀 LAUNCHING...</span>
+                  <p className="text-[10px] text-slate-700 font-bold">Connecting to Thoothukudi Public Portal</p>
                 </div>
               ) : (
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-16 h-16 rounded-full border-4 border-amber-500 border-t-transparent animate-spin flex items-center justify-center">
-                    <span className="font-mono text-xl font-black text-emerald-900">{countdown}</span>
+                <div className="flex flex-col items-center gap-1.5">
+                  <div className="w-12 h-12 rounded-full border-4 border-amber-500 border-t-transparent animate-spin flex items-center justify-center">
+                    <span className="font-mono text-lg font-black text-emerald-900">{countdown}</span>
                   </div>
-                  <p className="text-xs text-slate-700 font-bold tracking-wide">Inaugurating Site in Real Time</p>
+                  <p className="text-[10px] text-slate-700 font-bold tracking-wide">Inaugurating Site in Real Time</p>
                 </div>
               )}
             </div>
@@ -143,19 +143,19 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
               <div className="absolute inset-0 bg-yellow-400 rounded-full blur-md opacity-0 group-hover:opacity-45 transition-opacity duration-300" />
 
               {/* Main Button Body with deep emerald green gradient matching TN Government styling */}
-              <div className="relative bg-gradient-to-r from-[#14532D] via-[#166534] to-[#15803d] rounded-full px-8 py-4 flex items-center gap-5 justify-between min-w-[320px] md:min-w-[360px]">
+              <div className="relative bg-gradient-to-r from-[#14532D] via-[#166534] to-[#15803d] rounded-full px-6 py-3 flex items-center gap-4 justify-between min-w-[280px] md:min-w-[340px]">
                 
                 {/* Globe Icon in white */}
-                <div className="p-2.5 bg-white/10 rounded-full border border-white/20 group-hover:bg-white/20 transition-colors">
-                  <Globe className="w-8 h-8 text-white animate-spin-slow" />
+                <div className="p-2 bg-white/10 rounded-full border border-white/20 group-hover:bg-white/20 transition-colors">
+                  <Globe className="w-6 h-6 text-white animate-spin-slow" />
                 </div>
 
                 {/* Button Text */}
                 <div className="text-left flex-1 pl-1">
-                  <span className="block text-2xl font-black text-white tracking-wider leading-none font-sans">
+                  <span className="block text-xl font-black text-white tracking-wider leading-none font-sans">
                     LAUNCH
                   </span>
-                  <span className="block text-xl font-bold text-yellow-300 tracking-widest leading-none mt-1 font-sans">
+                  <span className="block text-lg font-bold text-yellow-300 tracking-widest leading-none mt-1 font-sans">
                     CSR WEBSITE
                   </span>
                 </div>
@@ -166,24 +166,24 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
         </div>
 
         {/* DATE DISPLAY */}
-        <div className="flex items-center gap-3 py-2.5 px-6">
-          <Calendar className="w-6 h-6 text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]" />
-          <div className="h-4 w-[1px] bg-white/40" />
-          <span className="font-mono text-base md:text-lg font-black tracking-wider text-white uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+        <div className="flex items-center gap-2.5 py-1.5 px-4">
+          <Calendar className="w-5 h-5 text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]" />
+          <div className="h-4.5 w-[1px] bg-white/40" />
+          <span className="font-mono text-sm md:text-base font-black tracking-wider text-white uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             11th June 2026
           </span>
         </div>
 
         {/* BOTTOM SECTION: 3 KEY FIGURES (NO LAYOUT BOXES) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-12 border-t border-white/20 pt-10">
+        <div className="grid grid-cols-3 gap-2 md:gap-4 w-full mt-6 md:mt-8 border-t border-white/20 pt-4 md:pt-6">
           
           {/* Column 1: Company Heads */}
           <div 
-            className="flex flex-col items-center text-center p-4 transition-all duration-300 group"
+            className="flex flex-col items-center text-center p-1 transition-all duration-300 group"
           >
             {/* Custom vector icon representing three company heads */}
-            <div className="w-16 h-16 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform mb-3">
-              <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform mb-1.5">
+              <svg className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Left Figure */}
                 <path d="M 12 38 C 12 34, 15 32, 18 32 C 19 32, 20 32.5, 21 33" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                 <circle cx="16" cy="24" r="4.5" fill="currentColor" />
@@ -201,21 +201,21 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
               </svg>
             </div>
             
-            <h3 className="text-base font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <h3 className="text-xs md:text-sm font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-tight">
               Company Heads
             </h3>
-            <p className="text-amber-300 font-serif italic text-lg mt-1 font-bold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <p className="text-amber-300 font-serif italic text-xs md:text-sm mt-0.5 font-bold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Welcome
             </p>
           </div>
 
           {/* Column 2: Fisheries Minister */}
           <div 
-            className="flex flex-col items-center text-center p-4 transition-all duration-300 group"
+            className="flex flex-col items-center text-center p-1 transition-all duration-300 group"
           >
             {/* Custom vector icon representing a leaping fish over sea waves */}
-            <div className="w-16 h-16 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform mb-3">
-              <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform mb-1.5">
+              <svg className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Leaping Fish body */}
                 <path d="M 36 12 C 30 14, 20 20, 16 28 C 19 28, 24 26, 28 24 Z" fill="currentColor" />
                 <path d="M 36 12 C 24 12, 14 22, 14 34 C 18 32, 22 32, 28 34 C 28 24, 34 16, 36 12 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
@@ -230,21 +230,21 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
               </svg>
             </div>
             
-            <h3 className="text-base font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <h3 className="text-xs md:text-sm font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-tight">
               Fisheries Minister
             </h3>
-            <p className="text-amber-300 font-serif italic text-lg mt-1 font-bold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <p className="text-amber-300 font-serif italic text-xs md:text-sm mt-0.5 font-bold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Welcome
             </p>
           </div>
 
           {/* Column 3: District Collector */}
           <div 
-            className="flex flex-col items-center text-center p-4 transition-all duration-300 group"
+            className="flex flex-col items-center text-center p-1 transition-all duration-300 group"
           >
             {/* Custom vector icon representing a government collectorate building with flag */}
-            <div className="w-16 h-16 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform mb-3">
-              <svg className="w-12 h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform mb-1.5">
+              <svg className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Dome / Sanchi Stupa style dome */}
                 <path d="M 14 32 C 14 20, 34 20, 34 32 Z" fill="currentColor" opacity="0.8" />
                 {/* Pillar Pillars */}
@@ -263,10 +263,10 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
               </svg>
             </div>
             
-            <h3 className="text-base font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <h3 className="text-xs md:text-sm font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-tight">
               District Collector
             </h3>
-            <p className="text-amber-300 font-serif italic text-lg mt-1 font-bold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <p className="text-amber-300 font-serif italic text-xs md:text-sm mt-0.5 font-bold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Welcome
             </p>
           </div>
@@ -276,8 +276,8 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
       </div>
 
       {/* Credit footer */}
-      <div className="text-center py-4 relative z-30">
-        <p className="text-[11px] font-black text-white uppercase tracking-widest font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+      <div className="text-center py-2 relative z-30">
+        <p className="text-[10px] md:text-[11px] font-black text-white uppercase tracking-widest font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
           Thoothukudi District Corporate Social Responsibility Board
         </p>
       </div>
