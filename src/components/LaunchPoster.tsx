@@ -196,11 +196,11 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
             </div>
             
             <div className="text-left font-sans font-black tracking-wide uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
-              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-white block">
-                MSME Minister:
-              </span>
               <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-amber-300 block">
                 Thiru P. MATHAN RAJA
+              </span>
+              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-white block">
+                Hon'ble MSME Minister
               </span>
             </div>
           </div>
@@ -208,11 +208,11 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
           {/* Row 1, Column 2: Fisheries Minister (Right Align with Symmetrical Icon on Right) */}
           <div className="flex flex-row items-center justify-end gap-1.5 sm:gap-3 p-1 transition-all duration-300 group">
             <div className="text-right font-sans font-black tracking-wide uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
-              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-white block">
-                Fisheries Minister:
-              </span>
               <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-amber-300 block">
                 Thiru. SRINATH
+              </span>
+              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-white block">
+                Hon'ble Fisheries Minister
               </span>
             </div>
             
@@ -258,11 +258,11 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
             </div>
             
             <div className="text-center font-sans font-black tracking-wide uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
-              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-white block">
-                District Collector:
-              </span>
               <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-amber-300 block">
                 Thiru. VISHU MAHAJAN, I.A.S.
+              </span>
+              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-white block">
+                District Collector
               </span>
             </div>
           </div>
