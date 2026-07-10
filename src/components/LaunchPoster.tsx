@@ -174,13 +174,11 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
           </span>
         </div>
 
-        {/* BOTTOM SECTION: 4 KEY FIGURES IN A 3-COLUMN GRID */}
-        <div className="grid grid-cols-3 gap-x-3 gap-y-4 md:gap-x-8 md:gap-y-6 w-full mt-6 md:mt-8 pt-4 md:pt-6">
+        {/* BOTTOM SECTION: KEY FIGURES */}
+        <div className="grid grid-cols-2 gap-x-4 sm:gap-x-12 gap-y-4 sm:gap-y-6 w-full mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/10">
           
-          {/* Column 1: MSME Minister */}
-          <div 
-            className="flex flex-row items-center justify-center gap-1.5 sm:gap-2 p-1 transition-all duration-300 group"
-          >
+          {/* Row 1, Column 1: MSME Minister (Left Align) */}
+          <div className="flex flex-row items-center justify-start gap-1.5 sm:gap-3 p-1 transition-all duration-300 group">
             {/* Custom vector icon representing MSME / Industry & Growth */}
             <div className="w-8 h-8 sm:w-11 sm:h-11 md:w-14 md:h-14 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform shrink-0">
               <svg className="w-6 h-6 sm:w-9 sm:h-9 md:w-11 md:h-11" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,15 +195,27 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
               </svg>
             </div>
             
-            <h3 className="text-[10px] sm:text-xs md:text-base lg:text-xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] text-left leading-tight whitespace-nowrap">
-              MSME Minister
-            </h3>
+            <div className="text-left font-sans font-black tracking-wide uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
+              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-white block">
+                MSME Minister:
+              </span>
+              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-amber-300 block">
+                Thiru P. MATHAN RAJA
+              </span>
+            </div>
           </div>
 
-          {/* Column 2: Fisheries Minister */}
-          <div 
-            className="flex flex-row items-center justify-center gap-1.5 sm:gap-2 p-1 transition-all duration-300 group"
-          >
+          {/* Row 1, Column 2: Fisheries Minister (Right Align with Symmetrical Icon on Right) */}
+          <div className="flex flex-row items-center justify-end gap-1.5 sm:gap-3 p-1 transition-all duration-300 group">
+            <div className="text-right font-sans font-black tracking-wide uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
+              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-white block">
+                Fisheries Minister:
+              </span>
+              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-amber-300 block">
+                Thiru. SRINATH
+              </span>
+            </div>
+            
             {/* Custom vector icon representing a leaping fish over sea waves */}
             <div className="w-8 h-8 sm:w-11 sm:h-11 md:w-14 md:h-14 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform shrink-0">
               <svg className="w-6 h-6 sm:w-9 sm:h-9 md:w-11 md:h-11" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -222,16 +232,10 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
                 <path d="M 12 42 Q 20 39 28 42 T 44 42" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </div>
-            
-            <h3 className="text-[10px] sm:text-xs md:text-base lg:text-xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] text-left leading-tight whitespace-nowrap">
-              Fisheries Minister
-            </h3>
           </div>
 
-          {/* Column 3: District Collectorate */}
-          <div 
-            className="flex flex-row items-center justify-center gap-1.5 sm:gap-2 p-1 transition-all duration-300 group"
-          >
+          {/* Row 2: District Collector (Centered across both columns) */}
+          <div className="col-span-2 flex flex-row items-center justify-center gap-1.5 sm:gap-3 p-1 transition-all duration-300 group mt-2">
             {/* Custom vector icon representing a government collectorate building with flag */}
             <div className="w-8 h-8 sm:w-11 sm:h-11 md:w-14 md:h-14 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform shrink-0">
               <svg className="w-6 h-6 sm:w-9 sm:h-9 md:w-11 md:h-11" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -253,38 +257,14 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
               </svg>
             </div>
             
-            <h3 className="text-[10px] sm:text-xs md:text-base lg:text-xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] text-left leading-tight whitespace-nowrap">
-              District Collector
-            </h3>
-          </div>
-
-          {/* Row 2: Company Heads (Centered in 3-column layout using col-span-3) */}
-          <div 
-            className="col-span-3 flex flex-row items-center justify-center gap-1.5 sm:gap-2 p-1 transition-all duration-300 group"
-          >
-            {/* Custom vector icon representing three company heads */}
-            <div className="w-8 h-8 sm:w-11 sm:h-11 md:w-14 md:h-14 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform shrink-0">
-              <svg className="w-5 h-5 sm:w-8 sm:h-8 md:w-11 md:h-11" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Left Figure */}
-                <path d="M 12 38 C 12 34, 15 32, 18 32 C 19 32, 20 32.5, 21 33" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                <circle cx="16" cy="24" r="4.5" fill="currentColor" />
-                
-                {/* Right Figure */}
-                <path d="M 36 38 C 36 34, 33 32, 30 32 C 29 32, 28 32.5, 27 33" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                <circle cx="32" cy="24" r="4.5" fill="currentColor" />
-                
-                {/* Center / Leader Figure (Large, highlighted with gold trim) */}
-                <path d="M 24 38 L 24 28" stroke="currentColor" strokeWidth="2.5" />
-                <path d="M 16 38 C 16 31, 20 29, 24 29 C 28 29, 32 31, 32 38 Z" fill="currentColor" />
-                <circle cx="24" cy="18" r="5" fill="#D4AF37" stroke="currentColor" strokeWidth="1.5" />
-                {/* Gold tie on center leader */}
-                <polygon points="24,24 22,28 26,28" fill="#D4AF37" />
-              </svg>
+            <div className="text-center font-sans font-black tracking-wide uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
+              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-white block">
+                District Collector:
+              </span>
+              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-amber-300 block">
+                Thiru. VISHU MAHAJAN, I.A.S.
+              </span>
             </div>
-            
-            <h3 className="text-[10px] sm:text-xs md:text-base lg:text-xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] text-left leading-tight whitespace-nowrap">
-              Company Heads
-            </h3>
           </div>
 
         </div>
