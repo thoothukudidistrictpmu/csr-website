@@ -12,11 +12,11 @@ import React from 'react';
 import { LaunchPoster } from './components/LaunchPoster';
 
 export default function App() {
-  // Confetti Canvas Ref
+  // Confetti/Blast Canvas Ref
   const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
   const [isLaunched, setIsLaunched] = React.useState<boolean>(false);
 
-  // Trigger grand celebration confetti when site is launched
+  // Trigger grand celebration fireworks blast when site is launched
   React.useEffect(() => {
     if (!isLaunched || !canvasRef.current) return;
 
@@ -35,90 +35,177 @@ export default function App() {
     };
     window.addEventListener('resize', handleResize);
 
-    // Particle class
-    class ConfettiParticle {
+    // Particle class representing firework blasts and sparkling debris
+    class BlastParticle {
       x: number;
       y: number;
       size: number;
       color: string;
-      speedX: number;
-      speedY: number;
+      vx: number;
+      vy: number;
+      alpha: number;
+      decay: number;
+      shape: 'circle' | 'square' | 'star';
+      gravity: number;
+      friction: number;
       rotation: number;
       rotationSpeed: number;
 
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = -20 - Math.random() * 100;
-        this.size = Math.random() * 8 + 6;
-        const colors = ['#F59E0B', '#EF4444', '#3B82F6', '#10B981', '#8B5CF6', '#EC4899', '#D4AF37'];
+      constructor(originX: number, originY: number) {
+        this.x = originX;
+        this.y = originY;
+        this.size = Math.random() * 6 + 4;
+        
+        // Beautiful bright festival colors (TND gold, emerald, magenta, turquoise, etc.)
+        const colors = [
+          '#FFD700', // Gold
+          '#FF5722', // Deep Orange
+          '#E91E63', // Magenta / Pink
+          '#4CAF50', // Emerald Green
+          '#00BCD4', // Turquoise Blue
+          '#9C27B0', // Royal Violet
+          '#FFEB3B', // Neon Yellow
+          '#FFFFFF'  // White Flash
+        ];
         this.color = colors[Math.floor(Math.random() * colors.length)];
-        this.speedX = Math.random() * 4 - 2;
-        this.speedY = Math.random() * 5 + 4;
+        
+        // Generate velocity in a full 360-degree radial blast pattern
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 14 + 4; // High initial velocity
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed - 2; // Slight upward bias
+        
+        this.alpha = 1.0;
+        this.decay = Math.random() * 0.015 + 0.01; // Fade out slowly
+        this.gravity = 0.22; // Falling downward
+        this.friction = 0.96; // Air resistance slow down
+        
+        const shapes: ('circle' | 'square' | 'star')[] = ['circle', 'square', 'star'];
+        this.shape = shapes[Math.floor(Math.random() * shapes.length)];
+        
         this.rotation = Math.random() * 360;
-        this.rotationSpeed = Math.random() * 10 - 5;
+        this.rotationSpeed = Math.random() * 12 - 6;
       }
 
       update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
+        this.vx *= this.friction;
+        this.vy *= this.friction;
+        this.vy += this.gravity;
+        
+        this.x += this.vx;
+        this.y += this.vy;
+        
         this.rotation += this.rotationSpeed;
-        if (this.y > height) {
-          this.y = -20;
-          this.x = Math.random() * width;
-        }
+        this.alpha -= this.decay;
       }
 
       draw() {
-        if (!ctx) return;
+        if (!ctx || this.alpha <= 0) return;
+        
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate((this.rotation * Math.PI) / 180);
+        ctx.globalAlpha = this.alpha;
         ctx.fillStyle = this.color;
-        ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+        
+        if (this.shape === 'circle') {
+          ctx.beginPath();
+          ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
+          ctx.fill();
+        } else if (this.shape === 'square') {
+          ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+        } else if (this.shape === 'star') {
+          // Draw a sparkling 5-pointed star
+          let rot = Math.PI / 2 * 3;
+          const spikes = 5;
+          const outerRadius = this.size;
+          const innerRadius = this.size / 2;
+          const step = Math.PI / spikes;
+          
+          ctx.beginPath();
+          ctx.moveTo(0, -outerRadius);
+          for (let i = 0; i < spikes; i++) {
+            let sx = Math.cos(rot) * outerRadius;
+            let sy = Math.sin(rot) * outerRadius;
+            ctx.lineTo(sx, sy);
+            rot += step;
+
+            sx = Math.cos(rot) * innerRadius;
+            sy = Math.sin(rot) * innerRadius;
+            ctx.lineTo(sx, sy);
+            rot += step;
+          }
+          ctx.closePath();
+          ctx.fill();
+        }
+        
         ctx.restore();
       }
     }
 
-    const particles: ConfettiParticle[] = Array.from({ length: 140 }, () => new ConfettiParticle());
+    // Create multiple grand bursts at different strategic positions
+    const particles: BlastParticle[] = [];
+    
+    // 1. Center button burst
+    const spawnBlast = (x: number, y: number, count: number) => {
+      for (let i = 0; i < count; i++) {
+        particles.push(new BlastParticle(x, y));
+      }
+    };
 
-    // Loop
+    // Trigger initial central blast & left/right bottom corner blasts (like stage fountains)
+    spawnBlast(width / 2, height / 2, 100);
+    spawnBlast(width * 0.15, height * 0.8, 60);
+    spawnBlast(width * 0.85, height * 0.8, 60);
+
+    // Keep spawning smaller mini-blasts continuously for a lively festival atmosphere
+    const miniBlastInterval = setInterval(() => {
+      const rx = Math.random() * width;
+      const ry = Math.random() * (height * 0.7);
+      spawnBlast(rx, ry, 30);
+    }, 450);
+
+    // Render loop
     const render = () => {
       ctx.clearRect(0, 0, width, height);
-      particles.forEach(p => {
+      
+      // Filter out faded particles
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
         p.update();
-        p.draw();
-      });
+        if (p.alpha <= 0) {
+          particles.splice(i, 1);
+        } else {
+          p.draw();
+        }
+      }
+      
       animationFrameId = requestAnimationFrame(render);
     };
 
     render();
 
-    // Redirect or open window after a short celebration
+    // Redirect the same tab after a beautiful 3-second celebratory preview
     const redirectTimeout = setTimeout(() => {
       window.location.href = "https://thoothukudi-district-administration.vercel.app/";
-    }, 2500);
+    }, 3000);
 
     return () => {
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
+      clearInterval(miniBlastInterval);
       clearTimeout(redirectTimeout);
     };
   }, [isLaunched]);
 
   const handleLaunch = () => {
     setIsLaunched(true);
-    // Open in a new tab immediately as well to bypass popups, and also do the redirect
-    try {
-      window.open("https://thoothukudi-district-administration.vercel.app/", "_blank");
-    } catch (err) {
-      console.error("Popup blocked:", err);
-    }
   };
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col relative" id="csr-app-root">
       
-      {/* Floating Canvas for launch confetti celebration */}
+      {/* Floating Canvas for stunning fireworks blast launch celebration */}
       <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-50 w-full h-full" />
 
       {/* Main routing rendering logic based on launch state */}
