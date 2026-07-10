@@ -170,12 +170,12 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
           <Calendar className="w-5 h-5 text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]" />
           <div className="h-4.5 w-[1px] bg-white/40" />
           <span className="font-mono text-sm md:text-base font-black tracking-wider text-white uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            11th June 2026
+            12th JULY 2026
           </span>
         </div>
 
-        {/* BOTTOM SECTION: 3 KEY FIGURES (NO LAYOUT BOXES) */}
-        <div className="grid grid-cols-3 gap-2 md:gap-4 w-full mt-6 md:mt-8 border-t border-white/20 pt-4 md:pt-6">
+        {/* BOTTOM SECTION: 4 KEY FIGURES (NO LAYOUT BOXES) */}
+        <div className="grid grid-cols-4 gap-1 md:gap-4 w-full mt-6 md:mt-8 border-t border-white/20 pt-4 md:pt-6">
           
           {/* Column 1: Company Heads */}
           <div 
@@ -203,6 +203,34 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
             
             <h3 className="text-xs md:text-sm font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-tight">
               Company Heads
+            </h3>
+            <p className="text-amber-300 font-serif italic text-xs md:text-sm mt-0.5 font-bold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              Welcome
+            </p>
+          </div>
+
+          {/* Column 2: MSME Minister */}
+          <div 
+            className="flex flex-col items-center text-center p-1 transition-all duration-300 group"
+          >
+            {/* Custom vector icon representing MSME / Industry & Growth */}
+            <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform mb-1.5">
+              <svg className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Gear representation */}
+                <circle cx="18" cy="28" r="6" stroke="currentColor" strokeWidth="2.5" />
+                <circle cx="18" cy="28" r="2" fill="currentColor" />
+                {/* Teeth of gear */}
+                <path d="M 18 19 L 18 21 M 18 35 L 18 37 M 9 28 L 11 28 M 25 28 L 27 28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                {/* Growing bar chart / industry building */}
+                <path d="M 30 38 L 30 24 L 36 24 L 36 38" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.7" />
+                <path d="M 38 38 L 38 18 L 44 18 L 44 38" stroke="currentColor" strokeWidth="2" fill="currentColor" />
+                {/* Base ground line */}
+                <path d="M 10 38 L 44 38" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+              </svg>
+            </div>
+            
+            <h3 className="text-xs md:text-sm font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-tight">
+              MSME Minister
             </h3>
             <p className="text-amber-300 font-serif italic text-xs md:text-sm mt-0.5 font-bold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Welcome
