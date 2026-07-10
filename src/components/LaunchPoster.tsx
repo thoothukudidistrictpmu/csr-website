@@ -82,7 +82,7 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
       
       {/* Main Content Container - Entirely transparent, letting the beautiful original Thoothukudi background display natively with no layout boxes */}
       <div 
-        className="max-w-4xl w-full mx-auto my-auto relative z-30 flex flex-col items-center py-2 px-4 -translate-y-5 md:-translate-y-10"
+        className="max-w-4xl w-full mx-auto my-auto relative z-30 flex flex-col items-center py-2 px-4 -translate-y-2 md:-translate-y-4"
       >
         
         {/* TOP: Tamil Nadu Government Emblem (No background box) */}
@@ -269,13 +269,6 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
 
         </div>
 
-      </div>
-
-      {/* Credit footer */}
-      <div className="text-center py-2 relative z-30">
-        <p className="text-[10px] md:text-[11px] font-black text-white uppercase tracking-widest font-sans drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-          Thoothukudi District Corporate Social Responsibility Board
-        </p>
       </div>
 
     </div>
