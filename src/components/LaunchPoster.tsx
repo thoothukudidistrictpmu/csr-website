@@ -143,15 +143,15 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
               <div className="absolute inset-0 bg-yellow-400 rounded-full blur-md opacity-0 group-hover:opacity-45 transition-opacity duration-300" />
 
               {/* Main Button Body with deep emerald green gradient matching TN Government styling */}
-              <div className="relative bg-gradient-to-r from-[#14532D] via-[#166534] to-[#15803d] rounded-full px-6 py-3 flex items-center gap-4 justify-between min-w-[280px] md:min-w-[340px]">
+              <div className="relative bg-gradient-to-r from-[#14532D] via-[#166534] to-[#15803d] rounded-full px-8 py-3.5 flex items-center gap-4 justify-center min-w-[280px] md:min-w-[340px]">
                 
                 {/* Globe Icon in white */}
-                <div className="p-2 bg-white/10 rounded-full border border-white/20 group-hover:bg-white/20 transition-colors">
+                <div className="p-2 bg-white/10 rounded-full border border-white/20 group-hover:bg-white/20 transition-colors shrink-0">
                   <Globe className="w-6 h-6 text-white animate-spin-slow" />
                 </div>
 
                 {/* Button Text */}
-                <div className="text-left flex-1 pl-1">
+                <div className="text-center">
                   <span className="block text-xl font-black text-white tracking-wider leading-none font-sans">
                     LAUNCH
                   </span>
