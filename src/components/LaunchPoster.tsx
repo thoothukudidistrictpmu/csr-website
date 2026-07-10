@@ -175,15 +175,15 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
         </div>
 
         {/* BOTTOM SECTION: 4 KEY FIGURES (NO LAYOUT BOXES) */}
-        <div className="grid grid-cols-4 gap-1 md:gap-4 w-full mt-6 md:mt-8 pt-4 md:pt-6">
+        <div className="flex flex-row flex-wrap justify-center gap-x-6 gap-y-3 md:gap-x-12 md:gap-y-6 w-full mt-6 md:mt-8 pt-4 md:pt-6">
           
           {/* Column 1: Company Heads */}
           <div 
-            className="flex flex-col items-center text-center p-1 transition-all duration-300 group"
+            className="flex flex-row items-center justify-center gap-2.5 p-1 transition-all duration-300 group"
           >
             {/* Custom vector icon representing three company heads */}
-            <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform mb-2">
-              <svg className="w-10 h-10 md:w-14 md:h-14" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform shrink-0">
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Left Figure */}
                 <path d="M 12 38 C 12 34, 15 32, 18 32 C 19 32, 20 32.5, 21 33" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                 <circle cx="16" cy="24" r="4.5" fill="currentColor" />
@@ -201,21 +201,18 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
               </svg>
             </div>
             
-            <h3 className="text-sm md:text-xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
+            <h3 className="text-xs sm:text-base md:text-xl lg:text-2xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] text-left leading-tight whitespace-nowrap">
               Company Heads
             </h3>
-            <p className="text-amber-300 font-serif italic text-xs md:text-lg mt-1 font-extrabold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-              Welcome
-            </p>
           </div>
-
+ 
           {/* Column 2: MSME Minister */}
           <div 
-            className="flex flex-col items-center text-center p-1 transition-all duration-300 group"
+            className="flex flex-row items-center justify-center gap-2.5 p-1 transition-all duration-300 group"
           >
             {/* Custom vector icon representing MSME / Industry & Growth */}
-            <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform mb-2">
-              <svg className="w-10 h-10 md:w-14 md:h-14" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform shrink-0">
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Gear representation */}
                 <circle cx="18" cy="28" r="6" stroke="currentColor" strokeWidth="2.5" />
                 <circle cx="18" cy="28" r="2" fill="currentColor" />
@@ -229,21 +226,18 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
               </svg>
             </div>
             
-            <h3 className="text-sm md:text-xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
+            <h3 className="text-xs sm:text-base md:text-xl lg:text-2xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] text-left leading-tight whitespace-nowrap">
               MSME Minister
             </h3>
-            <p className="text-amber-300 font-serif italic text-xs md:text-lg mt-1 font-extrabold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-              Welcome
-            </p>
           </div>
-
+ 
           {/* Column 3: Fisheries Minister */}
           <div 
-            className="flex flex-col items-center text-center p-1 transition-all duration-300 group"
+            className="flex flex-row items-center justify-center gap-2.5 p-1 transition-all duration-300 group"
           >
             {/* Custom vector icon representing a leaping fish over sea waves */}
-            <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform mb-2">
-              <svg className="w-10 h-10 md:w-14 md:h-14" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform shrink-0">
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Leaping Fish body */}
                 <path d="M 36 12 C 30 14, 20 20, 16 28 C 19 28, 24 26, 28 24 Z" fill="currentColor" />
                 <path d="M 36 12 C 24 12, 14 22, 14 34 C 18 32, 22 32, 28 34 C 28 24, 34 16, 36 12 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
@@ -258,21 +252,18 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
               </svg>
             </div>
             
-            <h3 className="text-sm md:text-xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
+            <h3 className="text-xs sm:text-base md:text-xl lg:text-2xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] text-left leading-tight whitespace-nowrap">
               Fisheries Minister
             </h3>
-            <p className="text-amber-300 font-serif italic text-xs md:text-lg mt-1 font-extrabold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-              Welcome
-            </p>
           </div>
-
+ 
           {/* Column 4: District Collector */}
           <div 
-            className="flex flex-col items-center text-center p-1 transition-all duration-300 group"
+            className="flex flex-row items-center justify-center gap-2.5 p-1 transition-all duration-300 group"
           >
             {/* Custom vector icon representing a government collectorate building with flag */}
-            <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform mb-2">
-              <svg className="w-10 h-10 md:w-14 md:h-14" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform shrink-0">
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Dome / Sanchi Stupa style dome */}
                 <path d="M 14 32 C 14 20, 34 20, 34 32 Z" fill="currentColor" opacity="0.8" />
                 {/* Pillar Pillars */}
@@ -284,21 +275,18 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
                 
                 {/* Foundation base */}
                 <rect x="8" y="40" width="32" height="3" rx="1" fill="currentColor" />
-
+ 
                 {/* Dome central spindle and flag */}
                 <line x1="24" y1="22" x2="24" y2="10" stroke="currentColor" strokeWidth="2" />
                 <path d="M 24 10 L 32 14 L 24 18 Z" fill="#D4AF37" stroke="currentColor" strokeWidth="1" />
               </svg>
             </div>
             
-            <h3 className="text-sm md:text-xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
+            <h3 className="text-xs sm:text-base md:text-xl lg:text-2xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] text-left leading-tight whitespace-nowrap">
               District Collector
             </h3>
-            <p className="text-amber-300 font-serif italic text-xs md:text-lg mt-1 font-extrabold leading-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-              Welcome
-            </p>
           </div>
-
+ 
         </div>
 
       </div>
