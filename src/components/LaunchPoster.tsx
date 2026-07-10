@@ -175,7 +175,7 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
         </div>
 
         {/* BOTTOM SECTION: 4 KEY FIGURES (NO LAYOUT BOXES) */}
-        <div className="grid grid-cols-4 gap-1 md:gap-4 w-full mt-6 md:mt-8 border-t border-white/20 pt-4 md:pt-6">
+        <div className="grid grid-cols-4 gap-1 md:gap-4 w-full mt-6 md:mt-8 pt-4 md:pt-6">
           
           {/* Column 1: Company Heads */}
           <div 
