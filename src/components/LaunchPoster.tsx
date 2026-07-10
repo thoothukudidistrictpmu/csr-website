@@ -82,7 +82,7 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
       
       {/* Main Content Container - Entirely transparent, letting the beautiful original Thoothukudi background display natively with no layout boxes */}
       <div 
-        className="max-w-4xl w-full mx-auto my-auto relative z-30 flex flex-col items-center py-2 px-4"
+        className="max-w-4xl w-full mx-auto my-auto relative z-30 flex flex-col items-center py-2 px-4 -translate-y-5 md:-translate-y-10"
       >
         
         {/* TOP: Tamil Nadu Government Emblem (No background box) */}
@@ -175,7 +175,7 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
         </div>
 
         {/* BOTTOM SECTION: KEY FIGURES */}
-        <div className="grid grid-cols-2 gap-x-4 sm:gap-x-12 gap-y-4 sm:gap-y-6 w-full mt-6 md:mt-8 pt-4 md:pt-6 border-t border-white/10">
+        <div className="grid grid-cols-2 gap-x-4 sm:gap-x-12 gap-y-3 sm:gap-y-5 w-full mt-2 md:mt-3 pt-0">
           
           {/* Row 1, Column 1: MSME Minister (Left Align) */}
           <div className="flex flex-row items-center justify-start gap-1.5 sm:gap-3 p-1 transition-all duration-300 group">
