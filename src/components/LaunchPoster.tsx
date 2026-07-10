@@ -254,7 +254,7 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
             </div>
             
             <h3 className="text-[10px] sm:text-xs md:text-base lg:text-xl font-black tracking-wide text-white uppercase font-sans drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] text-left leading-tight whitespace-nowrap">
-              District Collectorate
+              District Collector
             </h3>
           </div>
 
