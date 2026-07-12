@@ -235,34 +235,44 @@ export const LaunchPoster: React.FC<LaunchPosterProps> = ({
           </div>
 
           {/* Row 2: District Collector (Centered across both columns) */}
-          <div className="col-span-2 flex flex-row items-center justify-center gap-1.5 sm:gap-3 p-1 transition-all duration-300 group mt-2">
-            {/* Custom vector icon representing a government collectorate building with flag */}
-            <div className="w-8 h-8 sm:w-11 sm:h-11 md:w-14 md:h-14 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform shrink-0">
-              <svg className="w-6 h-6 sm:w-9 sm:h-9 md:w-11 md:h-11" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Dome / Sanchi Stupa style dome */}
-                <path d="M 14 32 C 14 20, 34 20, 34 32 Z" fill="currentColor" opacity="0.8" />
-                {/* Pillar Pillars */}
-                <rect x="12" y="32" width="24" height="8" fill="currentColor" stroke="currentColor" strokeWidth="1.5" />
-                <rect x="15" y="34" width="2" height="6" fill="#FFF" />
-                <rect x="20" y="34" width="2" height="6" fill="#FFF" />
-                <rect x="26" y="34" width="2" height="6" fill="#FFF" />
-                <rect x="31" y="34" width="2" height="6" fill="#FFF" />
-                
-                {/* Foundation base */}
-                <rect x="8" y="40" width="32" height="3" rx="1" fill="currentColor" />
- 
-                {/* Dome central spindle and flag */}
-                <line x1="24" y1="22" x2="24" y2="10" stroke="currentColor" strokeWidth="2" />
-                <path d="M 24 10 L 32 14 L 24 18 Z" fill="#D4AF37" stroke="currentColor" strokeWidth="1" />
-              </svg>
+          <div className="col-span-2 flex flex-col items-center mt-2">
+            {/* Collector Row with icon and name/title aligned */}
+            <div className="flex flex-row items-center justify-center gap-1.5 sm:gap-3 p-1 transition-all duration-300 group">
+              {/* Custom vector icon representing a government collectorate building with flag */}
+              <div className="w-8 h-8 sm:w-11 sm:h-11 md:w-14 md:h-14 flex items-center justify-center text-yellow-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform shrink-0">
+                <svg className="w-6 h-6 sm:w-9 sm:h-9 md:w-11 md:h-11" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Dome / Sanchi Stupa style dome */}
+                  <path d="M 14 32 C 14 20, 34 20, 34 32 Z" fill="currentColor" opacity="0.8" />
+                  {/* Pillar Pillars */}
+                  <rect x="12" y="32" width="24" height="8" fill="currentColor" stroke="currentColor" strokeWidth="1.5" />
+                  <rect x="15" y="34" width="2" height="6" fill="#FFF" />
+                  <rect x="20" y="34" width="2" height="6" fill="#FFF" />
+                  <rect x="26" y="34" width="2" height="6" fill="#FFF" />
+                  <rect x="31" y="34" width="2" height="6" fill="#FFF" />
+                  
+                  {/* Foundation base */}
+                  <rect x="8" y="40" width="32" height="3" rx="1" fill="currentColor" />
+   
+                  {/* Dome central spindle and flag */}
+                  <line x1="24" y1="22" x2="24" y2="10" stroke="currentColor" strokeWidth="2" />
+                  <path d="M 24 10 L 32 14 L 24 18 Z" fill="#D4AF37" stroke="currentColor" strokeWidth="1" />
+                </svg>
+              </div>
+              
+              <div className="text-left font-sans font-black tracking-wide uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
+                <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-amber-300 block">
+                  Thiru. VISHU MAHAJAN, I.A.S.
+                </span>
+                <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-white block">
+                  District Collector
+                </span>
+              </div>
             </div>
-            
-            <div className="text-center font-sans font-black tracking-wide uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight">
+
+            {/* Separate Row: All Company Heads (Centered and moved slightly below, completely independent of the icon alignment) */}
+            <div className="text-center font-sans font-black tracking-wide uppercase drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] leading-tight mt-3 sm:mt-5">
               <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-amber-300 block">
-                Thiru. VISHU MAHAJAN, I.A.S.
-              </span>
-              <span className="text-[10px] sm:text-xs md:text-base lg:text-xl text-white block">
-                District Collector
+                &amp; All Company Heads
               </span>
             </div>
           </div>
