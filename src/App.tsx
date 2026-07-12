@@ -11,6 +11,110 @@
 import React from 'react';
 import { LaunchPoster } from './components/LaunchPoster';
 
+interface PlayBlastSoundOptions {
+  pan?: number;
+  pitchMultiplier?: number;
+  delayMs?: number;
+  boomVolume?: number;
+  sizzleVolume?: number;
+  duration?: number;
+}
+
+const playBlastSound = (options: PlayBlastSoundOptions = {}) => {
+  const {
+    pan = 0,
+    pitchMultiplier = 1.0,
+    delayMs = 0,
+    boomVolume = 0.8,
+    sizzleVolume = 0.5,
+    duration = 1.2
+  } = options;
+
+  setTimeout(() => {
+    try {
+      const AudioCtxClass = window.AudioContext || (window as any).webkitAudioContext;
+      if (!AudioCtxClass) return;
+      const ctx = new AudioCtxClass();
+
+      if (ctx.state === 'suspended') {
+        ctx.resume();
+      }
+
+      // 1. Low Frequency Boom (Thump)
+      const osc = ctx.createOscillator();
+      const gainOsc = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(140 * pitchMultiplier, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(15, ctx.currentTime + duration * 0.4);
+      
+      gainOsc.gain.setValueAtTime(boomVolume, ctx.currentTime);
+      gainOsc.gain.exponentialRampToValueAtTime(0.005, ctx.currentTime + duration * 0.45);
+
+      // 2. High Frequency Sparkling Sizzle (White Noise)
+      const bufferSize = ctx.sampleRate * duration;
+      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.random() * 2 - 1;
+      }
+      
+      const noiseSource = ctx.createBufferSource();
+      noiseSource.buffer = buffer;
+
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(1200 * pitchMultiplier, ctx.currentTime);
+      filter.frequency.exponentialRampToValueAtTime(250 * pitchMultiplier, ctx.currentTime + duration * 0.8);
+      filter.Q.setValueAtTime(3.5, ctx.currentTime);
+
+      const gainNoise = ctx.createGain();
+      gainNoise.gain.setValueAtTime(sizzleVolume, ctx.currentTime);
+      gainNoise.gain.exponentialRampToValueAtTime(0.005, ctx.currentTime + duration * 0.9);
+
+      // Stereo Panner (if supported)
+      let panner: StereoPannerNode | null = null;
+      if (ctx.createStereoPanner) {
+        panner = ctx.createStereoPanner();
+        panner.pan.setValueAtTime(pan, ctx.currentTime);
+      }
+
+      // Connect nodes based on panner support
+      if (panner) {
+        osc.connect(gainOsc);
+        gainOsc.connect(panner);
+
+        noiseSource.connect(filter);
+        filter.connect(gainNoise);
+        gainNoise.connect(panner);
+
+        panner.connect(ctx.destination);
+      } else {
+        osc.connect(gainOsc);
+        gainOsc.connect(ctx.destination);
+
+        noiseSource.connect(filter);
+        filter.connect(gainNoise);
+        gainNoise.connect(ctx.destination);
+      }
+
+      // Start and Stop playback
+      osc.start();
+      osc.stop(ctx.currentTime + duration * 0.5);
+
+      noiseSource.start();
+      noiseSource.stop(ctx.currentTime + duration);
+
+      // Automatically dispose of context to release memory/threads
+      setTimeout(() => {
+        ctx.close().catch(() => {});
+      }, duration * 1000 + 500);
+
+    } catch (err) {
+      console.warn("Audio synthesis failure:", err);
+    }
+  }, delayMs);
+};
+
 export default function App() {
   // Confetti/Blast Canvas Ref
   const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
@@ -158,11 +262,27 @@ export default function App() {
     spawnBlast(width * 0.15, height * 0.8, 60);
     spawnBlast(width * 0.85, height * 0.8, 60);
 
+    // Play three layered grand-finale blast sounds in stereo!
+    playBlastSound({ pan: 0, pitchMultiplier: 0.85, boomVolume: 0.9, sizzleVolume: 0.6, duration: 1.5 });
+    playBlastSound({ pan: -0.6, pitchMultiplier: 1.1, delayMs: 150, boomVolume: 0.5, sizzleVolume: 0.3, duration: 1.2 });
+    playBlastSound({ pan: 0.6, pitchMultiplier: 1.2, delayMs: 300, boomVolume: 0.5, sizzleVolume: 0.3, duration: 1.2 });
+
     // Keep spawning smaller mini-blasts continuously for a lively festival atmosphere
     const miniBlastInterval = setInterval(() => {
       const rx = Math.random() * width;
       const ry = Math.random() * (height * 0.7);
       spawnBlast(rx, ry, 30);
+
+      // Soft mini blast sound mapped to the horizontal spawn position (stereo pan)
+      const pan = (rx / width) * 2 - 1;
+      const pitch = 0.85 + Math.random() * 0.4;
+      playBlastSound({
+        pan,
+        pitchMultiplier: pitch,
+        boomVolume: 0.15,
+        sizzleVolume: 0.1,
+        duration: 0.7
+      });
     }, 450);
 
     // Render loop
